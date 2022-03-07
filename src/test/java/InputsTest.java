@@ -25,6 +25,10 @@ public class InputsTest extends BaseTest{
         string = element.getAttribute("value");
         assertEquals(string, "", "string not correct");
         element.clear();
+        element.sendKeys("ee");
+        string = element.getAttribute("value");
+        assertEquals(string, "", "string not correct");
+        element.clear();
         element.sendKeys("9e2");
         string = element.getAttribute("value");
         assertEquals(string, "9e2", "string not correct");
