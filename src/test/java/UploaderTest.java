@@ -3,17 +3,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+
 public class UploaderTest extends BaseTest{
-    WebDriverWait wait;
-
-
 
     @Test
     public void uploadFile(){
-        driver.get("http://the-internet.herokuapp.com/upload");
-        String file = "src/test/resources/1863.html";
-        driver.findElement(By.xpath("//*[@id=\"file-upload\"]")).sendKeys(file);
-        driver.findElement(By.cssSelector("[value=Upload]")).click();
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"content\"]/div/h3")));
-    }
+            driver.get("http://the-internet.herokuapp.com/upload");
+            driver.findElement(By.xpath("//input[@type='file']")).sendKeys("/Users/user/IdeaProjects/HerokuApp/src/test/resources/img.png");
+            driver.findElement(By.id("file-submit")).click();
+            WebDriverWait wait = new WebDriverWait(driver, 5);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h3")));
+            assertEquals(driver.findElement(By.id("uploaded-files")).getText(), "img.png");
+        }
 }

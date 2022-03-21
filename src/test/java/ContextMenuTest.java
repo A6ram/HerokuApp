@@ -1,29 +1,19 @@
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 public class ContextMenuTest extends BaseTest{
     @Test
-    public void validationText(){
-        Actions actions = new Actions(driver);
+    public void contextNenu(){
         driver.get("http://the-internet.herokuapp.com/context_menu");
-        By rightClick = By.xpath("//*[@id=\"hot-spot\"]");
-
-
-        WebElement rightClickElem = driver.findElement(rightClick);
-        actions.contextClick(rightClickElem).perform();
-
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Actions actions = new Actions(driver);
+        actions.contextClick(driver.findElement(By.id("hot-spot"))).perform();
+        Alert alert = driver.switchTo().alert();
+        assertEquals(alert.getText(), "You selected a context menu");
         alert.accept();
-
-
-
-
-
+        driver.switchTo().defaultContent();
     }
 }
