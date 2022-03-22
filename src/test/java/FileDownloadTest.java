@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 import static org.testng.Assert.assertTrue;
 
-public class FileDownloadTest extends BaseTest{
+public class FileDownloadTest extends BaseTest {
 
     @Test
     public void fileDownload() throws InterruptedException {

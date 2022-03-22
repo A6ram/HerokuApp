@@ -15,10 +15,10 @@ public class CheckBoxesTest extends BaseTest {
         boolean isSelectedAgain = driver.findElement(By.cssSelector("[type=checkbox]")).isSelected();
         assertFalse(isSelectedAgain);
         driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).click();
-        boolean isSelected2= driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).isSelected();
+        boolean isSelected2 = driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).isSelected();
         assertFalse(isSelected2);
         driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).click();
-        boolean isSelected2again= driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).isSelected();
+        boolean isSelected2again = driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).isSelected();
         assertTrue(isSelected2again);
 
     }

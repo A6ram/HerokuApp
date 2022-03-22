@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.*;
 
-public class DynamicControlTest extends BaseTest{
+public class DynamicControlTest extends BaseTest {
     @Test
     public void dynamicControls() {
         driver.get("http://the-internet.herokuapp.com/dynamic_controls");

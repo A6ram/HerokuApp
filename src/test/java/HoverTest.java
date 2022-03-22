@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class HoverTest extends BaseTest{
+public class HoverTest extends BaseTest {
     @Test
     public void hover() {
         driver.get("http://the-internet.herokuapp.com/hovers");

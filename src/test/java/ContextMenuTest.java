@@ -5,9 +5,9 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class ContextMenuTest extends BaseTest{
+public class ContextMenuTest extends BaseTest {
     @Test
-    public void contextNenu(){
+    public void contextNenu() {
         driver.get("http://the-internet.herokuapp.com/context_menu");
         Actions actions = new Actions(driver);
         actions.contextClick(driver.findElement(By.id("hot-spot"))).perform();
