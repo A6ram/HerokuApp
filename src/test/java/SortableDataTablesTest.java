@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class SortableDataTablesTest extends BaseTest{
+public class SortableDataTablesTest extends BaseTest {
     @Test
-    public void srtableDataTables(){
+    public void srtableDataTables() {
         driver.get("http://the-internet.herokuapp.com/tables");
         WebElement elementFirst = driver.findElements(By.xpath("//table//tr[1]//td[1]")).get(0);
         String string = elementFirst.getText();

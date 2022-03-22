@@ -1,5 +1,4 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertFalse;
@@ -9,13 +8,18 @@ public class CheckBoxesTest extends BaseTest {
     @Test
     public void checkBox() {
         driver.get("http://the-internet.herokuapp.com/checkboxes");
-        WebElement elementFirst = driver.findElements(By.cssSelector("[type=checkbox]")).get(0);
-        assertFalse(elementFirst.isSelected(), "Element selected");
-        elementFirst.click();
-        assertTrue(elementFirst.isSelected(), "Element unselected");
-        WebElement elementSecond = driver.findElements(By.cssSelector("[type=checkbox]")).get(1);
-        assertTrue(elementSecond.isSelected(), "Element unselected");
-        elementSecond.click();
-        assertFalse(elementSecond.isSelected(), "Element selected");
+        driver.findElement(By.cssSelector("[type=checkbox]")).click();
+        boolean isSelected = driver.findElement(By.cssSelector("[type=checkbox]")).isSelected();
+        assertTrue(isSelected);
+        driver.findElement(By.cssSelector("[type=checkbox]")).click();
+        boolean isSelectedAgain = driver.findElement(By.cssSelector("[type=checkbox]")).isSelected();
+        assertFalse(isSelectedAgain);
+        driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).click();
+        boolean isSelected2 = driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).isSelected();
+        assertFalse(isSelected2);
+        driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).click();
+        boolean isSelected2again = driver.findElement(By.xpath("//*[@id=\"checkboxes\"]/input[2]")).isSelected();
+        assertTrue(isSelected2again);
+
     }
 }

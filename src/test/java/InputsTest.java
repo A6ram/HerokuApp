@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class InputsTest extends BaseTest{
+public class InputsTest extends BaseTest {
     @Test
     public void inputs() {
         driver.get("http://the-internet.herokuapp.com/inputs");
